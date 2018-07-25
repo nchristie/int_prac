@@ -38,3 +38,6 @@ class Solution(object):
                 j -= 1
 
         return max_area
+
+x = Solution()
+print(x.maxArea([1,2,3,4,5]))
