@@ -178,36 +178,37 @@ class MyLinkedList(object):
             return
 
         #initialise node_before and node_after
-        node_before = None
-        node_after = None
+        self.node_before = None
+        self.node_after = None
 
         # make new node
-        new_node = Node()
-        new_node.val = val
+        self.new_node = Node()
+        self.new_node.val = val
+        self.new_node.next_node = Node()
 
         # start at head of list
-        current_node = self.head
+        self.current_node = self.head
 
         # navigate to position prior to index in list
-        for i in range(index-1):
+        for i in range(index):
 
             # if next_node doesn't exist exit function (as we're navigating to the node before the index we want to add at this is the right thing to do)
-            if not current_node.next_node:
+            if not self.current_node.next_node:
                 return
 
             # store position of the node prior to index as node_before
-            node_before = current_node
+            self.node_before = self.current_node.next_node
 
             # store position of index node as node_after
-            node_after = current_node.next_node
+            self.node_after = self.current_node.next_node.next_node
 
             # exit loop
 
         # assign new_node.next_node to node_after
-        new_node.next_node = node_after
+        self.new_node.next_node = self.node_after
 
         # reassign node_before.next_node to new_node
-        node_before.next_node = new_node
+        self.node_before.next_node = self.new_node
 
 
     def deleteAtIndex(self, index):
@@ -324,11 +325,11 @@ obj.addAtIndex(2,15) # 3 -> 2 -> 15 -> 1 -> (10) -> None
 actual_output = obj.get(2)
 expected_output = 15
 obj.print_whole_list()
-print('3 -> 2 -> 15 -> 1 -> 10 -> None\n')
+print('3 -> 2 -> 15 -> 1 -> 10 -> 99 -> None\n')
 
 obj.deleteAtIndex(1) # 3 -> 15 -> 1 -> 10 -> None
 obj.print_whole_list()
-print('3 -> 15 -> 1 -> 10 -> None\n')
+print('3 -> 15 -> 1 -> 10 -> 99 -> None\n')
 
 
 # numbers = MyLinkedList()
