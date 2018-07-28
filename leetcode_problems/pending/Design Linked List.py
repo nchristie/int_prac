@@ -42,7 +42,9 @@ Please do not use the built-in LinkedList library.
 class Node(object):
     def __init__(self, val=None):
         self.val = None
-        self.next_val = None
+        self.next_node = None
+
+
 
 class MyLinkedList(object):
 
@@ -51,8 +53,8 @@ class MyLinkedList(object):
         Initialize your data structure here.
         """
         self.head = Node()
-        self.next_val = None
-        self.val = None
+        self.head.next_node = None
+        self.head.val = None
 
     def get(self, index):
         """
@@ -63,7 +65,7 @@ class MyLinkedList(object):
         """
         self.sought_index = self.head
         for i in range(index):
-            self.sought_index = self.next_val
+            self.sought_index = self.next_node
         return self.sought_index
             
             
@@ -78,7 +80,7 @@ class MyLinkedList(object):
         """
         new_node = Node()
         new_node.val = val
-        new_node.next_val = self.head
+        new_node.next_node = self.head
         self.head = new_node
 
     def addAtTail(self, val):
@@ -93,9 +95,9 @@ class MyLinkedList(object):
         find_tail = self.head
         
         while find_tail.val:
-            find_tail = find_tail.next_val
+            find_tail = find_tail.next_node
 
-        find_tail.next_val = new_node
+        find_tail.next_node = new_node
             
 
     def addAtIndex(self, index, val):
