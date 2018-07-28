@@ -51,6 +51,8 @@ class MyLinkedList(object):
         Initialize your data structure here.
         """
         self.head = Node()
+        self.next_val = None
+        self.val = None
 
     def get(self, index):
         """
@@ -61,7 +63,7 @@ class MyLinkedList(object):
         """
         self.sought_index = self.head
         for i in range(index):
-            self.sought_index = self.next
+            self.sought_index = self.next_val
         return self.sought_index
             
             
@@ -85,7 +87,16 @@ class MyLinkedList(object):
         :type val: int
         :rtype: void
         """
-        pass
+        new_node = Node()
+        new_node.val = val
+
+        find_tail = self.head
+        
+        while find_tail.val:
+            find_tail = find_tail.next_val
+
+        find_tail.next_val = new_node
+            
 
     def addAtIndex(self, index, val):
         """
@@ -106,15 +117,22 @@ class MyLinkedList(object):
 
 #Your MyLinkedList object will be instantiated and called as such:
 obj = MyLinkedList()
-param_1 = obj.get(0)
-obj.addAtHead(4)
-#obj.addAtTail(val)
-#obj.addAtIndex(index,val)
-#obj.deleteAtIndex(index)
 
-print param_1.val
-param_2 = obj.get(0)
-print param_2.val
+head = obj.get(0)
+print 'expected output = {}, real output = {}'.format(None,head.val)
+#expected output = None
+
+obj.addAtHead(1)
+head = obj.get(0)
+print 'expected output = {}, real output = {}'.format(1,head.val)
+#expected output = 1
+
+obj.addAtTail(3)
+tail = obj.get(1)
+print 'expected output = {}, real output = {}'.format(3,tail.val)
+##obj.addAtIndex(1,2)
+##obj.deleteAtIndex(1)
+
 
 
        
