@@ -1,0 +1,38 @@
+DEBUG:root:addAtHead(two)
+DEBUG:root:addAtHead(one)
+DEBUG:root:addAtHead(zero)
+DEBUG:root:['zero', 'one', 'two']
+DEBUG:root:
+---Adding Three to tail---
+DEBUG:root:addAtTail called
+DEBUG:root:new_node created as Node
+DEBUG:root:new_node value set to Three
+DEBUG:root:current_node set to self.head
+DEBUG:root:
+---While loop about to begin---
+DEBUG:root:
+---while loop has now ended---
+DEBUG:root:We are at index 2, value of two
+DEBUG:root:current_node.next_node.val is: None
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: Three
+DEBUG:root:current_node moved forward by one, value of current_node is Three
+DEBUG:root:current_node.next_node.val is now None
+DEBUG:root:['zero', 'one', 'two', 'Three']
+DEBUG:root:
+
+
+---Adding Four to tail---
+DEBUG:root:addAtTail called
+DEBUG:root:new_node created as Node
+DEBUG:root:new_node value set to Four
+DEBUG:root:current_node set to self.head
+DEBUG:root:
+---While loop about to begin---
+DEBUG:root:
+---while loop has now ended---
+DEBUG:root:We are at index 3, value of Three
+DEBUG:root:current_node.next_node.val is: None
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: Four
+DEBUG:root:current_node moved forward by one, value of current_node is Four
+DEBUG:root:current_node.next_node.val is now None
+DEBUG:root:['zero', 'one', 'two', 'Three', 'Four']

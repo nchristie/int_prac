@@ -32,6 +32,9 @@ The number of operations will be in the range of [1, 1000].
 Please do not use the built-in LinkedList library.
 '''
 
+import logging
+logging.basicConfig(filename="test.log", level=logging.DEBUG)
+debug = logging.debug
 
 class Node(object):
     def __init__(self, val=None):
@@ -51,22 +54,21 @@ class MyLinkedList(object):
         self.head.val = None
 
 
-    def print_whole_list(self):
+    def debug_whole_list(self):
         if not self.head.val:
-            print('No list to print')#
+            debug('No list to debug')
             return
 
         current_node = self.head
 
-        list_to_print = []
+        list_to_debug = []
 
         while current_node.val:
-            list_to_print.append(current_node.val)
+            list_to_debug.append(current_node.val)
             current_node = current_node.next_node
 
-        print('{}'.format(list_to_print))
-        return list_to_print
-
+        debug('{}'.format(list_to_debug))
+        
 
     def get(self, index):
         """
@@ -84,6 +86,7 @@ class MyLinkedList(object):
             self.current_node = self.current_node.next_node
             if not self.current_node.val:
                 return -1
+        debug('get() has run, current_node_val: {}'.format(self.current_node.val))
         return self.current_node.val
 
 
@@ -102,17 +105,7 @@ class MyLinkedList(object):
             new_node.val = val
             new_node.next_node = self.head
             self.head = new_node
-        # if the list was empty
-        # list -> fakenode
-        # addAtHead(1)
-        # addAtHead(2)
-        # list = 1 -> 2 -> fakenode
-
-        # emptylist
-        # addAtTail(1)
-        # addAtTail(2)
-        # list = fakenode -> 1 -> 2
-
+        debug('addAtHead({})'.format(val))
 
     def addAtTail(self, val):
         """
@@ -120,50 +113,36 @@ class MyLinkedList(object):
         :type val: int
         :rtype: void
         """
-        #print('addAtTail called')
+        debug('addAtTail called')
         if not self.head.val:
             self.head.val = val
-            print('head.val = None')
+            debug('head.val = None')
             return
 
         self.new_node = Node()
-        #print('new_node created as Node')
+        debug('new_node created as Node')
         self.new_node.val = val
-        #print('new_node value set to {}'.format(self.new_node.val))
+        debug('new_node value set to {}'.format(self.new_node.val))
         self.new_node.next_node = 'waiting for a better value'
         self.current_node = self.head
-        #print('current_node set to self.head')
+        debug('current_node set to self.head')
         i=0
-        #print('\n---While loop about to begin---')
+        debug('\n---While loop about to begin---')
 
         while self.current_node.next_node.val:
-            #print('We are at index {}, value of {}'.format(i, self.current_node.val))
+            #debug('We are at index {}, value of {}'.format(i, self.current_node.val))
             self.current_node = self.current_node.next_node
             i = i+1
 
-        #print('\n---while loop has now ended---')
-        #print('We are at index {}, value of {}'.format(i, self.current_node.val))
-        #print('current_node.next_node.val is: {}'.format(self.current_node.next_node.val))
+        debug('\n---while loop has now ended---')
+        debug('We are at index {}, value of {}'.format(i, self.current_node.val))
+        debug('current_node.next_node.val is: {}'.format(self.current_node.next_node.val))
         self.current_node.next_node = self.new_node
-        #print('current_node.next_node.val is has been changed to new_node, value is: {}'.format(self.current_node.next_node.val))
+        debug('current_node.next_node.val is has been changed to new_node, value is: {}'.format(self.current_node.next_node.val))
         self.current_node = self.current_node.next_node
-        #print('current_node moved forward by one, value of current_node is {}'.format(self.current_node.val))
+        debug('current_node moved forward by one, value of current_node is {}'.format(self.current_node.val))
         self.current_node.next_node = Node()
-        #print('current_node.next_node.val is now {}'.format(self.current_node.next_node.val))
-
-
-        # while True:
-        #     print('We are at index {}, value of {}'.format(i, self.current_node.val))
-        #     if not self.current_node.next_node.next_node:
-        #         print('\n---Break condition met---')
-        #         print('We are at index {}, value of {}'.format(i, self.current_node.val))
-        #         self.current_node.next_node = self.new_node
-        #         print('current_node.next_node set to new_node')
-        #         break
-        #
-        #     else:
-        #         self.current_node = self.current_node.next_node
-        #     i = i+1
+        debug('current_node.next_node.val is now {}'.format(self.current_node.next_node.val))
 
 
     def addAtIndex(self, index, val):
@@ -209,6 +188,7 @@ class MyLinkedList(object):
 
         # reassign node_before.next_node to new_node
         self.node_before.next_node = self.new_node
+        debug('addAtIndex({})'.format(val))
 
 
     def deleteAtIndex(self, index):
@@ -245,6 +225,7 @@ class MyLinkedList(object):
         node_after = current_node.next_node.next_node
         #assign value of the current_node's next node to the one after the one you want to delete
         node_before.next_node = node_after
+        debug('deleteAtIndex({})'.format(index))
 
 
 ##################################################################################################
@@ -255,96 +236,88 @@ def check_output(function_call, expected, actual):
         if not actual:
             actual = None
         output = ('{}: {}!={}'.format(function_call, expected, actual))
-        print(output)
-        return output
+        debug(output)
 
-#Your MyLinkedList object will be instantiated and called as such:
-print()
-
-obj = MyLinkedList()
-
-actual_output = obj.get(0) # (Fakenode) -> None
-expected_output = -1
-check_output('obj.get(0)', expected_output, actual_output)
-obj.print_whole_list()
-print('(Fakenode) -> None\n')
-
-
-#print('starts here')
-obj.addAtHead(1) # 1 -> None
-#print('added at head')
-actual_output = obj.get(0) # (1) -> None
-#print('set actual output')
-expected_output = 1
-#print('set expected output')
-check_output('obj.addAtHead(1)', expected_output, actual_output)
-#print('check_output function run')
-obj.print_whole_list()
-#print('print_whole_list has run')
-print('1 -> None\n')
-#print('ends here')
-
-obj.addAtHead(2) # 2 -> 1 -> None
-actual_output = obj.get(0) # (2) -> 1 -> None
-expected_output = 2
-check_output('obj.addAtHead(2)', expected_output, actual_output)
-obj.print_whole_list()
-print('2 -> 1 -> None\n')
-
-
-obj.addAtHead(3) # 3 -> 2 -> 1 -> None
-actual_output = obj.get(0) # (3) -> 2 -> 1 -> None
-expected_output = 3
-check_output('obj.addAtHead(3)', expected_output, actual_output)
-obj.print_whole_list()
-print('3 -> 2 -> 1 -> None\n')
-
-actual_output = obj.get(1)  # 3 -> (2) -> 1 -> None
-expected_output = 2
-check_output('obj.get(1)', expected_output, actual_output)
-
-actual_output = obj.get(2) # 3 -> 2 -> (1) -> None
-expected_output = 1
-check_output('obj.get(2)', expected_output, actual_output)
-
-obj.addAtTail(10) # 3 -> 2 -> 1 -> 10 -> None
-actual_output = obj.get(3) # 3 -> 2 -> 1 -> (10) -> None
-expected_output = 10
-check_output('obj.addAtTail(10)', expected_output, actual_output)
-obj.print_whole_list()
-print('3 -> 2 -> 1 -> 10 -> None\n')
-
-obj.addAtTail(99) # 3 -> 2 -> 1 -> 10 -> None
-actual_output = obj.get(4) # 3 -> 2 -> 1 -> (10) -> None
-expected_output = 99
-check_output('obj.addAtTail(99)', expected_output, actual_output)
-obj.print_whole_list()
-print('3 -> 2 -> 1 -> 10 -> 99 -> None\n')
-
-obj.addAtIndex(2,15) # 3 -> 2 -> 15 -> 1 -> (10) -> None
-actual_output = obj.get(2)
-expected_output = 15
-obj.print_whole_list()
-print('3 -> 2 -> 15 -> 1 -> 10 -> 99 -> None\n')
-
-obj.deleteAtIndex(1) # 3 -> 15 -> 1 -> 10 -> None
-obj.print_whole_list()
-print('3 -> 15 -> 1 -> 10 -> 99 -> None\n')
+###Your MyLinkedList object will be instantiated and called as such:
+##
+##obj = MyLinkedList()
+##
+##actual_output = obj.get(0) # (Fakenode) -> None
+##expected_output = -1
+##check_output('obj.get(0)', expected_output, actual_output)
+##obj.debug_whole_list()
+##debug('(Fakenode) -> None\n')
+##
+##
+##
+##obj.addAtHead(1) # 1 -> None
+##actual_output = obj.get(0) # (1) -> None
+##expected_output = 1
+##check_output('obj.addAtHead(1)', expected_output, actual_output)
+##obj.debug_whole_list()
+##debug('1 -> None\n')
+##
+##obj.addAtHead(2) # 2 -> 1 -> None
+##actual_output = obj.get(0) # (2) -> 1 -> None
+##expected_output = 2
+##debug(check_output('obj.addAtHead(2)', expected_output, actual_output))
+##obj.debug_whole_list()
+##debug('2 -> 1 -> None\n')
+##
+##
+##obj.addAtHead(3) # 3 -> 2 -> 1 -> None
+##actual_output = obj.get(0) # (3) -> 2 -> 1 -> None
+##expected_output = 3
+##check_output('obj.addAtHead(3)', expected_output, actual_output)
+##obj.debug_whole_list()
+##debug('3 -> 2 -> 1 -> None\n')
+##
+##actual_output = obj.get(1)  # 3 -> (2) -> 1 -> None
+##expected_output = 2
+##check_output('obj.get(1)', expected_output, actual_output)
+##
+##actual_output = obj.get(2) # 3 -> 2 -> (1) -> None
+##expected_output = 1
+##check_output('obj.get(2)', expected_output, actual_output)
+##
+##obj.addAtTail(10) # 3 -> 2 -> 1 -> 10 -> None
+##actual_output = obj.get(3) # 3 -> 2 -> 1 -> (10) -> None
+##expected_output = 10
+##debug(check_output('obj.addAtTail(10)', expected_output, actual_output))
+##obj.debug_whole_list()
+##debug('3 -> 2 -> 1 -> 10 -> None\n')
+##
+##obj.addAtTail(99) # 3 -> 2 -> 1 -> 10 -> None
+##actual_output = obj.get(4) # 3 -> 2 -> 1 -> (10) -> None
+##expected_output = 99
+##debug(check_output('obj.addAtTail(99)', expected_output, actual_output))
+##obj.debug_whole_list()
+##debug(('3 -> 2 -> 1 -> 10 -> 99 -> None\n'))
+##
+##obj.addAtIndex(2,15) # 3 -> 2 -> 15 -> 1 -> (10) -> None
+##actual_output = obj.get(2)
+##expected_output = 15
+##obj.debug_whole_list()
+##debug(('3 -> 2 -> 15 -> 1 -> 10 -> 99 -> None\n'))
+##
+##obj.deleteAtIndex(1) # 3 -> 15 -> 1 -> 10 -> None
+##obj.debug_whole_list()
+##debug(('3 -> 15 -> 1 -> 10 -> 99 -> None\n'))
 
 
-# numbers = MyLinkedList()
-# numbers.addAtHead('two')
-# numbers.addAtHead('one')
-# numbers.addAtHead('zero')
-# numbers.print_whole_list()
-#
-# print('\n---Adding Three to tail---')
-# numbers.addAtTail('Three')
-# numbers.print_whole_list()
-#
-#
-# print('\n\n\n---Adding Four to tail---')
-# numbers.addAtTail('Four')
-# numbers.print_whole_list()
+numbers = MyLinkedList()
+numbers.addAtHead('two')
+numbers.addAtHead('one')
+numbers.addAtHead('zero')
+numbers.debug_whole_list()
+
+debug('\n---Adding Three to tail---')
+numbers.addAtTail('Three')
+numbers.debug_whole_list()
+
+
+debug('\n\n\n---Adding Four to tail---')
+numbers.addAtTail('Four')
+numbers.debug_whole_list()
 
 
