@@ -721,3 +721,77 @@ DEBUG:root:At index 4, value of 24
 DEBUG:root:
 ---while loop for traverse to index finished at index 5, value of 13---
 DEBUG:root:get() has run, current_node_val: 1
+DEBUG:root:addAtHead(8)
+DEBUG:root:
+---While loop about to begin for addAtTail---
+DEBUG:root:
+---while loop for traverse to tail finished at index 0, value of 8---
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 81
+DEBUG:root:current_node moved forward by one, value of current_node is 81
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:
+---While loop about to begin to traverse to index---
+DEBUG:root:At index 0, value of 8
+DEBUG:root:
+---while loop for traverse to index finished at index 1, value of 81---
+DEBUG:root:addAtHead(26)
+DEBUG:root:
+---While loop about to begin to traverse to index---
+DEBUG:root:At index 0, value of 26
+DEBUG:root:
+---while loop for traverse to index finished at index 1, value of 8---
+DEBUG:root:get() has run, current_node_val: 8
+DEBUG:root:
+---While loop about to begin for addAtTail---
+DEBUG:root:At index 0, value of 26
+DEBUG:root:At index 1, value of 8
+DEBUG:root:
+---while loop for traverse to tail finished at index 2, value of 81---
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 24
+DEBUG:root:current_node moved forward by one, value of current_node is 24
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:addAtHead(15)
+DEBUG:root:
+---While loop about to begin for addAtTail---
+DEBUG:root:At index 0, value of 15
+DEBUG:root:At index 1, value of 26
+DEBUG:root:At index 2, value of 8
+DEBUG:root:At index 3, value of 81
+DEBUG:root:
+---while loop for traverse to tail finished at index 4, value of 24---
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 0
+DEBUG:root:current_node moved forward by one, value of current_node is 0
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:
+---While loop about to begin for addAtTail---
+DEBUG:root:At index 0, value of 15
+DEBUG:root:At index 1, value of 26
+DEBUG:root:At index 2, value of 8
+DEBUG:root:At index 3, value of 81
+DEBUG:root:
+---while loop for traverse to tail finished at index 4, value of 24---
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 13
+DEBUG:root:current_node moved forward by one, value of current_node is 13
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:
+---While loop about to begin for addAtTail---
+DEBUG:root:At index 0, value of 15
+DEBUG:root:At index 1, value of 26
+DEBUG:root:At index 2, value of 8
+DEBUG:root:At index 3, value of 81
+DEBUG:root:At index 4, value of 24
+DEBUG:root:
+---while loop for traverse to tail finished at index 5, value of 13---
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 1
+DEBUG:root:current_node moved forward by one, value of current_node is 1
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:
+---While loop about to begin to traverse to index---
+DEBUG:root:At index 0, value of 15
+DEBUG:root:At index 1, value of 26
+DEBUG:root:At index 2, value of 8
+DEBUG:root:At index 3, value of 81
+DEBUG:root:At index 4, value of 24
+DEBUG:root:
+---while loop for traverse to index finished at index 5, value of 13---
+DEBUG:root:get() has run, current_node_val: 33

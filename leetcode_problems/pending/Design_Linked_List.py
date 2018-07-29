@@ -149,23 +149,6 @@ class MyLinkedList(object):
 
 
     def traverse_to_index(self, index):
-        debug('\n---While loop about to begin to traverse to index---')
-        for i in range(index - 1):
-            debug('At index {}, value of {}'.format(i, self.current_node.val))
-            if not self.current_node.next_node or not self.current_node.next_node.val:
-                debug('Traverse to index ended, index {} is longer than list of {}'.format(index, i))
-                return -1
-            self.current_node = self.current_node.next_node
-        debug('\n---while loop for traverse to index finished at index {}, value of {}---'.format(
-            i + 1, self.current_node.val))
-        return self.current_node
-
-    def traverse_list(self, index=None):
-        """traverses list from head to tail
-        if an index is given will traverse from head up to the position before the index
-        """
-        i = 0
-
         self.current_node = self.head
         if not self.current_node.val:
             return self.current_node
@@ -176,10 +159,16 @@ class MyLinkedList(object):
         if not self.current_node.next_node.val:
             return self.current_node.next_node
 
-        if not index:
-            self.traverse_to_tail()
-        else:
-            self.traverse_to_index(index)
+        debug('\n---While loop about to begin to traverse to index---')
+        for i in range(index - 1):
+            debug('At index {}, value of {}'.format(i, self.current_node.val))
+            if not self.current_node.next_node or not self.current_node.next_node.val:
+                debug('Traverse to index ended, index {} is longer than list of {}'.format(index, i))
+                return -1
+            self.current_node = self.current_node.next_node
+        debug('\n---while loop for traverse to index finished at index {}, value of {}---'.format(
+            i + 1, self.current_node.val))
+        return self.current_node
 
 
     def addAtTail(self, val):
@@ -240,7 +229,7 @@ class MyLinkedList(object):
         self.new_node = self.create_new_node(val)
 
         # traverse list
-        self.current_node = self.traverse_list(index)
+        self.current_node = self.traverse_to_index(index)
         if self.current_node == -1:
 
             return
@@ -263,7 +252,7 @@ class MyLinkedList(object):
         if not self.head.val:
             return
 
-        self.current_node = self.traverse_list(index)
+        self.current_node = self.traverse_to_index(index)
         if self.current_node == -1:
             return
 
