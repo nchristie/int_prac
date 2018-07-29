@@ -57,7 +57,7 @@ class MyLinkedList(object):
 
 
     def debug_whole_list(self):
-        if not self.head.val:
+        if not self.check_node_has_value(self.head):
             debug('No list to debug')
             return
 
@@ -65,7 +65,7 @@ class MyLinkedList(object):
 
         list_to_debug = []
 
-        while current_node.val:
+        while self.check_node_has_value(current_node):
             list_to_debug.append(current_node.val)
             current_node = current_node.next_node
 
@@ -73,7 +73,7 @@ class MyLinkedList(object):
 
 
     def print_whole_list(self):
-        if not self.head.val:
+        if not self.check_node_has_value(self.head):
             print('No list to print')
             return
 
@@ -81,11 +81,43 @@ class MyLinkedList(object):
 
         list_to_print = []
 
-        while current_node and current_node.val:
+        while self.check_node_has_value(current_node):
             list_to_print.append(current_node.val)
             current_node = current_node.next_node
 
         print('{}'.format(list_to_print))
+
+
+    def return_whole_list(self):
+        if not self.check_node_has_value(self.head):
+            return('No list to print')
+            return
+
+        current_node = self.head
+
+        list_to_return = []
+
+        while self.check_node_has_value(current_node):
+            list_to_return.append(current_node.val)
+            current_node = current_node.next_node
+
+        return list_to_return
+
+
+    def check_node_has_value(self, node):
+        """
+        Checks if a node exists and has a value
+        deals with if the value is zero
+        :param node: Node() 
+        :return: Boolean
+        """
+
+        if node.val == 0:
+            return True
+        elif node.val == None:
+            return False
+        else:
+            return True
 
 
     def create_new_node(self, val=None):
@@ -102,18 +134,17 @@ class MyLinkedList(object):
         :type index: int
         :rtype: int
         """
-        if not self.head.val:
+        if not self.check_node_has_value(self.head):
             return -1
 
         self.current_node = self.head
+        debug('---for loop in to get value at index about to begin---')
 
         for i in range(index):
             self.current_node = self.current_node.next_node
-            if not self.current_node:
+            if not self.check_node_has_value(self.current_node):
                 return -1
-            if not self.current_node.val:
-                return -1
-        debug('get() has run, current_node_val: {}'.format(self.current_node.val))
+
         return self.current_node.val
 
 
@@ -125,49 +156,35 @@ class MyLinkedList(object):
         :type val: int
         :rtype: void
         """
-        if not self.head:
-            self.head.val = val
-        else:
-            new_node = Node()
-            new_node.val = val
-            new_node.next_node = self.head
-            self.head = new_node
+
+        new_node = Node()
+        new_node.val = val# if val != 0 else 'zero'
+        new_node.next_node = self.head
+        self.head = new_node
         debug('addAtHead({})'.format(val))
 
 
     def traverse_to_tail(self):
-        i=0
+
         self.current_node = self.head
 
-        while self.current_node.next_node.val:
-            debug('At index {}, value of {}'.format(i, self.current_node.val))
+        while self.check_node_has_value(self.current_node.next_node):
             self.current_node = self.current_node.next_node
-            i += 1
-        debug('\n---while loop for traverse to tail finished at index {}, value of {}---'.format(
-            i, self.current_node.val))
+
         return self.current_node
 
 
     def traverse_to_index(self, index):
+
         self.current_node = self.head
-        if not self.current_node.val:
+        if not self.check_node_has_value(self.current_node):
             return self.current_node
 
-        if not self.current_node.next_node:
-            return self.current_node
-
-        if not self.current_node.next_node.val:
-            return self.current_node.next_node
-
-        debug('\n---While loop about to begin to traverse to index---')
         for i in range(index - 1):
-            debug('At index {}, value of {}'.format(i, self.current_node.val))
-            if not self.current_node.next_node or not self.current_node.next_node.val:
-                debug('Traverse to index ended, index {} is longer than list of {}'.format(index, i))
+            if not self.check_node_has_value(self.current_node.next_node.next_node):
                 return -1
             self.current_node = self.current_node.next_node
-        debug('\n---while loop for traverse to index finished at index {}, value of {}---'.format(
-            i + 1, self.current_node.val))
+
         return self.current_node
 
 
@@ -178,36 +195,13 @@ class MyLinkedList(object):
         :rtype: void
         """
 
-        if not self.head.val:
+        if not self.check_node_has_value(self.head):
             self.head.val = val
             return
 
         self.new_node = self.create_new_node(val)
-
-        debug('\n---While loop about to begin for addAtTail---')
         self.current_node = self.traverse_to_tail()
-
-        if self.current_node == -1:
-            return
-
-        try:
-            if self.current_node \
-                    and self.current_node.val \
-                    and self.current_node.next_node \
-                    and self.current_node.next_node.val:
-                debug('current_node.next_node.val is: {}'.format(self.current_node.next_node.val))
-
-            self.current_node.next_node = self.new_node
-
-            debug('current_node.next_node.val is has been changed to new_node, value is: {}'.format(
-            self.current_node.next_node.val))
-
-            self.current_node = self.current_node.next_node
-            debug('current_node moved forward by one, value of current_node is {}'.format(self.current_node.val))
-
-            debug('current_node.next_node.val is {}'.format(self.current_node.next_node.val))
-        except:
-            return
+        self.current_node.next_node = self.new_node
 
 
     def addAtIndex(self, index, val):
@@ -217,13 +211,20 @@ class MyLinkedList(object):
         :type val: int
         :rtype: void
         """
-        # check if head of list has a value, exit function if not
-        if not self.head.val:
 
+        if index == 0:
+            self.new_node = Node()
+            self.new_node.val = val
+            self.new_node.next_node = self.head
+            self.head = self.new_node
+            return
+
+        # check if head of list has a value, exit function if not
+        if not self.check_node_has_value(self.head):
             return
 
         # initialise node_after
-        self.node_after = None
+        self.node_after = Node(val)
 
         # make new node
         self.new_node = self.create_new_node(val)
@@ -231,15 +232,14 @@ class MyLinkedList(object):
         # traverse list
         self.current_node = self.traverse_to_index(index)
         if self.current_node == -1:
-
             return
         else:
-            try:
+            if self.check_node_has_value(self.current_node.next_node):
                 self.node_after = self.current_node.next_node
                 self.current_node.next_node = self.new_node
                 self.new_node.next_node = self.node_after
-            except:
-                pass
+            else:
+                self.current_node.next_node = self.new_node
 
 
     def deleteAtIndex(self, index):
@@ -249,29 +249,26 @@ class MyLinkedList(object):
         :rtype: void
         """
         # check if head of list has a value, exit function if not
-        if not self.head.val:
+        if not self.check_node_has_value(self.head):
             return
 
         self.current_node = self.traverse_to_index(index)
         if self.current_node == -1:
             return
 
-        if not self.current_node or self.current_node.val:
+        if not self.check_node_has_value(self.current_node):
             return -1
 
         # check if the node after the one you want to delete exists
-        if not self.current_node.next_node \
-                or not self.current_node.next_node.next_node \
-                or not self.current_node.next_node.next_node.val:
+        if not self.check_node_has_value(self.current_node.next_node):
             # assign value of the current_node's next node to None, end function
             self.current_node.next_node = Node()
             debug('Breaking loop for deleteAtIndex as the index to be deleted was the final one')
             return
 
-        # if node two places after exists store as node_after
-        self.node_after = self.current_node.next_node.next_node
-        # assign value of the current_node's next node to the one after the one you want to delete
-        self.current_node.next_node = self.node_after
+        # if node two places after exists assign it to current_node.next_node
+        self.current_node.next_node = self.current_node.next_node.next_node
+
         debug('deleteAtIndex({})'.format(index))
 
 
@@ -290,51 +287,160 @@ def check_output(function_call, expected, actual):
 functions = ["MyLinkedList","addAtHead","get","addAtTail","deleteAtIndex","addAtHead","deleteAtIndex","get","addAtTail","addAtHead","addAtTail","addAtTail","addAtTail","addAtIndex","get"]
 args = [[],[8],[1],[81],[2],[26],[2],[1],[24],[15],[0],[13],[1],[6,33],[6]]
 
+
+functions = ["MyLinkedList","addAtHead","get","addAtTail","deleteAtIndex","addAtHead","deleteAtIndex","get","addAtTail","addAtHead","addAtTail","addAtTail","addAtTail","addAtIndex","get","addAtIndex","addAtHead","deleteAtIndex","addAtIndex","addAtHead","addAtIndex","deleteAtIndex","get","addAtTail","deleteAtIndex","deleteAtIndex","addAtTail","addAtTail","addAtIndex","addAtHead","get","get","addAtTail","addAtTail","addAtTail","addAtTail","addAtIndex","addAtIndex","addAtHead","addAtIndex","addAtTail","addAtHead","addAtHead","addAtHead","addAtHead","addAtHead","addAtHead","addAtTail","addAtHead","deleteAtIndex","addAtHead","get","addAtHead","get","addAtHead","addAtHead","addAtHead","addAtIndex","deleteAtIndex","addAtTail","deleteAtIndex","get","addAtIndex","addAtHead","addAtTail","deleteAtIndex","addAtHead","addAtIndex","deleteAtIndex","deleteAtIndex","deleteAtIndex","addAtHead","addAtTail","addAtTail","addAtHead","addAtTail","addAtIndex","deleteAtIndex","deleteAtIndex","addAtIndex","addAtHead","addAtHead","addAtTail","get","addAtIndex","get","addAtHead","addAtHead","addAtHead","addAtIndex","addAtIndex","get","addAtHead","get","get","addAtTail","addAtHead","addAtHead","addAtTail","addAtTail","get","addAtTail"]
+args = [[],[8],[1],[81],[2],[26],[2],[1],[24],[15],[0],[13],[1],[6,33],[6],[2,91],[82],[6],[4,11],[3],[7,14],[1],[6],[99],[11],[7],[5],[92],[7,92],[57],[2],[6],[39],[51],[3],[22],[5,26],[9,52],[69],[5,58],[79],[7],[41],[33],[88],[44],[8],[72],[93],[18],[1],[9],[46],[9],[92],[71],[69],[11,54],[27],[83],[12],[20],[19,97],[77],[36],[3],[35],[16,68],[22],[36],[17],[62],[89],[61],[6],[92],[28,69],[23],[28],[7,4],[0],[24],[52],[1],[23,3],[7],[6],[68],[79],[45,90],[41,52],[28],[25],[9],[32],[11],[90],[24],[98],[36],[34],[26]]
+
+functions = ["MyLinkedList","addAtHead","addAtIndex","get","get","get"]
+args = [[],[1],[1,2],[1],[0],[2]]
+
+functions = ["MyLinkedList","addAtHead","addAtTail","addAtIndex","get","deleteAtIndex","get"]
+args = [[],[1],[3],[1,2],[1],[1],[1]]
+
+functions = ["MyLinkedList","get","addAtIndex","get","get","addAtIndex","get","get"]
+args = [[],[0],[1,2],[0],[1],[0,1],[0],[1]]
+
 # for i in range(len(functions)):
 #     print('obj.{}({})'.format(functions[i], str(args[i]).replace('[','').replace(']','')))
 
 
 obj = MyLinkedList()
+
+def list_len(marker=''):
+    length = len(obj.return_whole_list())
+    print('{}Length of list: {}'.format(marker, length))
+
+obj.get(0)
+obj.addAtIndex(1, 2)
+obj.get(0)
+obj.get(1)
+obj.addAtIndex(0, 1)
 obj.print_whole_list()
+obj.get(0)
+obj.get(1)
+
+
+obj.addAtHead(1)
+obj.addAtTail(3)
+obj.addAtIndex(1, 2)
+obj.get(1)
+obj.deleteAtIndex(1)
+obj.get(1)
+
+
+obj.addAtHead(1)
+obj.addAtIndex(1, 2)
+
+
+obj.get(1)
+obj.get(0)
+obj.get(2)
+
+
 
 obj.addAtHead(8)
-obj.print_whole_list()
-
 obj.get(1)
-
 obj.addAtTail(81)
-obj.print_whole_list()
-
 obj.deleteAtIndex(2)
-obj.print_whole_list()
-
 obj.addAtHead(26)
-obj.print_whole_list()
-
 obj.deleteAtIndex(2)
-obj.print_whole_list()
-
 obj.get(1)
-
 obj.addAtTail(24)
-obj.print_whole_list()
-
 obj.addAtHead(15)
-obj.print_whole_list()
-
 obj.addAtTail(0)
-obj.print_whole_list()
-
 obj.addAtTail(13)
-obj.print_whole_list()
-
 obj.addAtTail(1)
-obj.print_whole_list()
-
 obj.addAtIndex(6, 33)
-obj.print_whole_list()
-
 obj.get(6)
+obj.addAtIndex(2, 91)
+obj.addAtHead(82)
+obj.deleteAtIndex(6)
+obj.addAtIndex(4, 11)
+obj.addAtHead(3)
+obj.addAtIndex(7, 14)
+obj.deleteAtIndex(1)
+obj.get(6)
+obj.addAtTail(99)
+obj.deleteAtIndex(11)
+obj.deleteAtIndex(7)
+obj.addAtTail(5)
+obj.addAtTail(92)
+obj.addAtIndex(7, 92)
+obj.addAtHead(57)
+obj.get(2)
+obj.get(6)
+obj.addAtTail(39)
+obj.addAtTail(51)
+obj.addAtTail(3)
+obj.addAtTail(22)
+obj.addAtIndex(5, 26)
+obj.addAtIndex(9, 52)
+obj.addAtHead(69)
+obj.addAtIndex(5, 58)
+obj.addAtTail(79)
+obj.addAtHead(7)
+obj.addAtHead(41)
+obj.addAtHead(33)
+obj.addAtHead(88)
+obj.addAtHead(44)
+obj.addAtHead(8)
+obj.addAtTail(72)
+obj.addAtHead(93)
+obj.deleteAtIndex(18)
+obj.addAtHead(1)
+obj.get(9)
+obj.addAtHead(46)
+obj.get(9)
+obj.addAtHead(92)
+obj.addAtHead(71)
+obj.addAtHead(69)
+obj.addAtIndex(11, 54)
+obj.deleteAtIndex(27)
+obj.addAtTail(83)
+obj.deleteAtIndex(12)
+obj.get(20)
+obj.addAtIndex(19, 97)
+obj.addAtHead(77)
+obj.addAtTail(36)
+obj.deleteAtIndex(3)
+obj.addAtHead(35)
+obj.addAtIndex(16, 68)
+obj.deleteAtIndex(22)
+obj.deleteAtIndex(36)
+obj.deleteAtIndex(17)
+obj.addAtHead(62)
+obj.addAtTail(89)
+obj.addAtTail(61)
+obj.addAtHead(6)
+obj.addAtTail(92)
+obj.addAtIndex(28, 69)
+obj.deleteAtIndex(23)
+obj.deleteAtIndex(28)
+obj.addAtIndex(7, 4)
+obj.addAtHead(0)
+obj.addAtHead(24)
+obj.addAtTail(52)
+obj.get(1)
+obj.addAtIndex(23, 3)
+obj.get(7)
+obj.addAtHead(6)
+obj.addAtHead(68)
+obj.addAtHead(79)
+obj.addAtIndex(45, 90)
+obj.addAtIndex(41, 52)
+obj.get(28)
+obj.addAtHead(25)
+obj.get(9)
+obj.get(32)
+obj.addAtTail(11)
+obj.addAtHead(90)
+obj.addAtHead(24)
+obj.addAtTail(98)
+obj.addAtTail(36)
+obj.get(34)
+obj.addAtTail(26)
+
+
 
 # obj = MyLinkedList()
 #
