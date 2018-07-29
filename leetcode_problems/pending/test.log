@@ -1,38 +1,73 @@
-DEBUG:root:addAtHead(two)
-DEBUG:root:addAtHead(one)
-DEBUG:root:addAtHead(zero)
-DEBUG:root:['zero', 'one', 'two']
-DEBUG:root:
----Adding Three to tail---
-DEBUG:root:addAtTail called
-DEBUG:root:new_node created as Node
-DEBUG:root:new_node value set to Three
-DEBUG:root:current_node set to self.head
-DEBUG:root:
----While loop about to begin---
-DEBUG:root:
----while loop has now ended---
-DEBUG:root:We are at index 2, value of two
-DEBUG:root:current_node.next_node.val is: None
-DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: Three
-DEBUG:root:current_node moved forward by one, value of current_node is Three
-DEBUG:root:current_node.next_node.val is now None
-DEBUG:root:['zero', 'one', 'two', 'Three']
-DEBUG:root:
+DEBUG:root:No list to debug
+DEBUG:root:(Fakenode) -> None
 
+DEBUG:root:addAtHead(1)
+DEBUG:root:get() has run, current_node_val: 1
+DEBUG:root:[1]
+DEBUG:root:1 -> None
 
----Adding Four to tail---
-DEBUG:root:addAtTail called
-DEBUG:root:new_node created as Node
-DEBUG:root:new_node value set to Four
-DEBUG:root:current_node set to self.head
+DEBUG:root:addAtHead(2)
+DEBUG:root:get() has run, current_node_val: 2
+DEBUG:root:None
+DEBUG:root:[2, 1]
+DEBUG:root:2 -> 1 -> None
+
+DEBUG:root:addAtHead(3)
+DEBUG:root:get() has run, current_node_val: 3
+DEBUG:root:[3, 2, 1]
+DEBUG:root:3 -> 2 -> 1 -> None
+
+DEBUG:root:get() has run, current_node_val: 2
+DEBUG:root:get() has run, current_node_val: 1
 DEBUG:root:
----While loop about to begin---
+---While loop about to begin for addAtTail---
 DEBUG:root:
----while loop has now ended---
-DEBUG:root:We are at index 3, value of Three
+---While loop about to begin to traverse to tail---
+DEBUG:root:At index 0, value of 3
+DEBUG:root:At index 1, value of 2
+DEBUG:root:
+---while loop for traverse to tail finished at index 2, value of 1---
 DEBUG:root:current_node.next_node.val is: None
-DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: Four
-DEBUG:root:current_node moved forward by one, value of current_node is Four
-DEBUG:root:current_node.next_node.val is now None
-DEBUG:root:['zero', 'one', 'two', 'Three', 'Four']
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 10
+DEBUG:root:current_node moved forward by one, value of current_node is 10
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:get() has run, current_node_val: 10
+DEBUG:root:None
+DEBUG:root:[3, 2, 1, 10]
+DEBUG:root:3 -> 2 -> 1 -> 10 -> None
+
+DEBUG:root:
+---While loop about to begin for addAtTail---
+DEBUG:root:
+---While loop about to begin to traverse to tail---
+DEBUG:root:At index 0, value of 3
+DEBUG:root:At index 1, value of 2
+DEBUG:root:At index 2, value of 1
+DEBUG:root:
+---while loop for traverse to tail finished at index 3, value of 10---
+DEBUG:root:current_node.next_node.val is: None
+DEBUG:root:current_node.next_node.val is has been changed to new_node, value is: 99
+DEBUG:root:current_node moved forward by one, value of current_node is 99
+DEBUG:root:current_node.next_node.val is None
+DEBUG:root:get() has run, current_node_val: 99
+DEBUG:root:None
+DEBUG:root:[3, 2, 1, 10, 99]
+DEBUG:root:3 -> 2 -> 1 -> 10 -> 99 -> None
+
+DEBUG:root:
+---While loop about to begin to traverse to index---
+DEBUG:root:At index 0, value of 3
+DEBUG:root:
+---while loop for traverse to index finished at index 1, value of 2---
+DEBUG:root:get() has run, current_node_val: 15
+DEBUG:root:[3, 2, 15, 1, 10, 99]
+DEBUG:root:3 -> 2 -> 15 -> 1 -> 10 -> 99 -> None
+
+DEBUG:root:
+---While loop about to begin to traverse to index---
+DEBUG:root:
+---while loop for traverse to index finished at index 1, value of 3---
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:[3, 15, 1, 10, 99]
+DEBUG:root:3 -> 15 -> 1 -> 10 -> 99 -> None
+
