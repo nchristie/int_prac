@@ -36,15 +36,15 @@ import logging
 logging.basicConfig(filename="test.log", level=logging.DEBUG)
 debug = logging.debug
 
-
+####################################################################################
 class Node(object):
     def __init__(self, val=None):
         self.val = None
         self.next_node = None
 
 
-# def debug(arg):
-#     pass
+def debug(arg):
+    pass
 
 
 class MyLinkedList(object):
@@ -176,15 +176,15 @@ class MyLinkedList(object):
 
     def traverse_to_index(self, index):
 
+        if not self.check_node_has_value(self.head)\
+                or not self.check_node_has_value(self.head.next_node):
+            return self.head
+
         self.current_node = self.head
-        if not self.check_node_has_value(self.current_node):
-            return self.current_node
-
-        for i in range(index - 1):
-            if not self.check_node_has_value(self.current_node.next_node.next_node):
-                return -1
+        for i in range(index-1):
             self.current_node = self.current_node.next_node
-
+            if not self.check_node_has_value(self.current_node):
+                return -1
         return self.current_node
 
 
@@ -222,9 +222,6 @@ class MyLinkedList(object):
         # check if head of list has a value, exit function if not
         if not self.check_node_has_value(self.head):
             return
-
-        # initialise node_after
-        self.node_after = Node(val)
 
         # make new node
         self.new_node = self.create_new_node(val)
@@ -272,267 +269,7 @@ class MyLinkedList(object):
         debug('deleteAtIndex({})'.format(index))
 
 
-##################################################################################################
-def check_output(function_call, expected, actual):
-    if expected == actual:
-        return
-    else:
-        if not actual:
-            actual = None
-        output = ('{}: {}!={}'.format(function_call, expected, actual))
-        debug(output)
 
-#Your MyLinkedList object will be instantiated and called as such:
-
-functions = ["MyLinkedList","addAtHead","get","addAtTail","deleteAtIndex","addAtHead","deleteAtIndex","get","addAtTail","addAtHead","addAtTail","addAtTail","addAtTail","addAtIndex","get"]
-args = [[],[8],[1],[81],[2],[26],[2],[1],[24],[15],[0],[13],[1],[6,33],[6]]
-
-
-functions = ["MyLinkedList","addAtHead","get","addAtTail","deleteAtIndex","addAtHead","deleteAtIndex","get","addAtTail","addAtHead","addAtTail","addAtTail","addAtTail","addAtIndex","get","addAtIndex","addAtHead","deleteAtIndex","addAtIndex","addAtHead","addAtIndex","deleteAtIndex","get","addAtTail","deleteAtIndex","deleteAtIndex","addAtTail","addAtTail","addAtIndex","addAtHead","get","get","addAtTail","addAtTail","addAtTail","addAtTail","addAtIndex","addAtIndex","addAtHead","addAtIndex","addAtTail","addAtHead","addAtHead","addAtHead","addAtHead","addAtHead","addAtHead","addAtTail","addAtHead","deleteAtIndex","addAtHead","get","addAtHead","get","addAtHead","addAtHead","addAtHead","addAtIndex","deleteAtIndex","addAtTail","deleteAtIndex","get","addAtIndex","addAtHead","addAtTail","deleteAtIndex","addAtHead","addAtIndex","deleteAtIndex","deleteAtIndex","deleteAtIndex","addAtHead","addAtTail","addAtTail","addAtHead","addAtTail","addAtIndex","deleteAtIndex","deleteAtIndex","addAtIndex","addAtHead","addAtHead","addAtTail","get","addAtIndex","get","addAtHead","addAtHead","addAtHead","addAtIndex","addAtIndex","get","addAtHead","get","get","addAtTail","addAtHead","addAtHead","addAtTail","addAtTail","get","addAtTail"]
-args = [[],[8],[1],[81],[2],[26],[2],[1],[24],[15],[0],[13],[1],[6,33],[6],[2,91],[82],[6],[4,11],[3],[7,14],[1],[6],[99],[11],[7],[5],[92],[7,92],[57],[2],[6],[39],[51],[3],[22],[5,26],[9,52],[69],[5,58],[79],[7],[41],[33],[88],[44],[8],[72],[93],[18],[1],[9],[46],[9],[92],[71],[69],[11,54],[27],[83],[12],[20],[19,97],[77],[36],[3],[35],[16,68],[22],[36],[17],[62],[89],[61],[6],[92],[28,69],[23],[28],[7,4],[0],[24],[52],[1],[23,3],[7],[6],[68],[79],[45,90],[41,52],[28],[25],[9],[32],[11],[90],[24],[98],[36],[34],[26]]
-
-functions = ["MyLinkedList","addAtHead","addAtIndex","get","get","get"]
-args = [[],[1],[1,2],[1],[0],[2]]
-
-functions = ["MyLinkedList","addAtHead","addAtTail","addAtIndex","get","deleteAtIndex","get"]
-args = [[],[1],[3],[1,2],[1],[1],[1]]
-
-functions = ["MyLinkedList","get","addAtIndex","get","get","addAtIndex","get","get"]
-args = [[],[0],[1,2],[0],[1],[0,1],[0],[1]]
-
-# for i in range(len(functions)):
-#     print('obj.{}({})'.format(functions[i], str(args[i]).replace('[','').replace(']','')))
-
-
-obj = MyLinkedList()
-
-def list_len(marker=''):
-    length = len(obj.return_whole_list())
-    print('{}Length of list: {}'.format(marker, length))
-
-obj.get(0)
-obj.addAtIndex(1, 2)
-obj.get(0)
-obj.get(1)
-obj.addAtIndex(0, 1)
-obj.print_whole_list()
-obj.get(0)
-obj.get(1)
-
-
-obj.addAtHead(1)
-obj.addAtTail(3)
-obj.addAtIndex(1, 2)
-obj.get(1)
-obj.deleteAtIndex(1)
-obj.get(1)
-
-
-obj.addAtHead(1)
-obj.addAtIndex(1, 2)
-
-
-obj.get(1)
-obj.get(0)
-obj.get(2)
-
-
-
-obj.addAtHead(8)
-obj.get(1)
-obj.addAtTail(81)
-obj.deleteAtIndex(2)
-obj.addAtHead(26)
-obj.deleteAtIndex(2)
-obj.get(1)
-obj.addAtTail(24)
-obj.addAtHead(15)
-obj.addAtTail(0)
-obj.addAtTail(13)
-obj.addAtTail(1)
-obj.addAtIndex(6, 33)
-obj.get(6)
-obj.addAtIndex(2, 91)
-obj.addAtHead(82)
-obj.deleteAtIndex(6)
-obj.addAtIndex(4, 11)
-obj.addAtHead(3)
-obj.addAtIndex(7, 14)
-obj.deleteAtIndex(1)
-obj.get(6)
-obj.addAtTail(99)
-obj.deleteAtIndex(11)
-obj.deleteAtIndex(7)
-obj.addAtTail(5)
-obj.addAtTail(92)
-obj.addAtIndex(7, 92)
-obj.addAtHead(57)
-obj.get(2)
-obj.get(6)
-obj.addAtTail(39)
-obj.addAtTail(51)
-obj.addAtTail(3)
-obj.addAtTail(22)
-obj.addAtIndex(5, 26)
-obj.addAtIndex(9, 52)
-obj.addAtHead(69)
-obj.addAtIndex(5, 58)
-obj.addAtTail(79)
-obj.addAtHead(7)
-obj.addAtHead(41)
-obj.addAtHead(33)
-obj.addAtHead(88)
-obj.addAtHead(44)
-obj.addAtHead(8)
-obj.addAtTail(72)
-obj.addAtHead(93)
-obj.deleteAtIndex(18)
-obj.addAtHead(1)
-obj.get(9)
-obj.addAtHead(46)
-obj.get(9)
-obj.addAtHead(92)
-obj.addAtHead(71)
-obj.addAtHead(69)
-obj.addAtIndex(11, 54)
-obj.deleteAtIndex(27)
-obj.addAtTail(83)
-obj.deleteAtIndex(12)
-obj.get(20)
-obj.addAtIndex(19, 97)
-obj.addAtHead(77)
-obj.addAtTail(36)
-obj.deleteAtIndex(3)
-obj.addAtHead(35)
-obj.addAtIndex(16, 68)
-obj.deleteAtIndex(22)
-obj.deleteAtIndex(36)
-obj.deleteAtIndex(17)
-obj.addAtHead(62)
-obj.addAtTail(89)
-obj.addAtTail(61)
-obj.addAtHead(6)
-obj.addAtTail(92)
-obj.addAtIndex(28, 69)
-obj.deleteAtIndex(23)
-obj.deleteAtIndex(28)
-obj.addAtIndex(7, 4)
-obj.addAtHead(0)
-obj.addAtHead(24)
-obj.addAtTail(52)
-obj.get(1)
-obj.addAtIndex(23, 3)
-obj.get(7)
-obj.addAtHead(6)
-obj.addAtHead(68)
-obj.addAtHead(79)
-obj.addAtIndex(45, 90)
-obj.addAtIndex(41, 52)
-obj.get(28)
-obj.addAtHead(25)
-obj.get(9)
-obj.get(32)
-obj.addAtTail(11)
-obj.addAtHead(90)
-obj.addAtHead(24)
-obj.addAtTail(98)
-obj.addAtTail(36)
-obj.get(34)
-obj.addAtTail(26)
-
-
-
-# obj = MyLinkedList()
-#
-# actual_output = obj.get(0) # (Fakenode) -> None
-# expected_output = -1
-# check_output('obj.get(0)', expected_output, actual_output)
-# obj.debug_whole_list()
-# debug('(Fakenode) -> None\n')
-#
-#
-#
-# obj.addAtHead(1) # 1 -> None
-# actual_output = obj.get(0) # (1) -> None
-# expected_output = 1
-# check_output('obj.addAtHead(1)', expected_output, actual_output)
-# obj.debug_whole_list()
-# debug('1 -> None\n')
-#
-# obj.addAtHead(2) # 2 -> 1 -> None
-# actual_output = obj.get(0) # (2) -> 1 -> None
-# expected_output = 2
-# debug(check_output('obj.addAtHead(2)', expected_output, actual_output))
-# obj.debug_whole_list()
-# debug('2 -> 1 -> None\n')
-#
-#
-# obj.addAtHead(3) # 3 -> 2 -> 1 -> None
-# actual_output = obj.get(0) # (3) -> 2 -> 1 -> None
-# expected_output = 3
-# check_output('obj.addAtHead(3)', expected_output, actual_output)
-# obj.debug_whole_list()
-# debug('3 -> 2 -> 1 -> None\n')
-#
-# actual_output = obj.get(1)  # 3 -> (2) -> 1 -> None
-# expected_output = 2
-# check_output('obj.get(1)', expected_output, actual_output)
-#
-# actual_output = obj.get(2) # 3 -> 2 -> (1) -> None
-# expected_output = 1
-# check_output('obj.get(2)', expected_output, actual_output)
-#
-# obj.addAtTail(10) # 3 -> 2 -> 1 -> 10 -> None
-# actual_output = obj.get(3) # 3 -> 2 -> 1 -> (10) -> None
-# expected_output = 10
-# debug(check_output('obj.addAtTail(10)', expected_output, actual_output))
-# obj.debug_whole_list()
-# debug('3 -> 2 -> 1 -> 10 -> None\n')
-#
-# obj.addAtTail(99) # 3 -> 2 -> 1 -> 10 -> None
-# actual_output = obj.get(4) # 3 -> 2 -> 1 -> (10) -> None
-# expected_output = 99
-# debug(check_output('obj.addAtTail(99)', expected_output, actual_output))
-# obj.debug_whole_list()
-# debug(('3 -> 2 -> 1 -> 10 -> 99 -> None\n'))
-#
-# obj.addAtIndex(2,15) # 3 -> 2 -> 15 -> 1 -> (10) -> None
-# actual_output = obj.get(2)
-# expected_output = 15
-# obj.debug_whole_list()
-# debug(('3 -> 2 -> 15 -> 1 -> 10 -> 99 -> None\n'))
-#
-# obj.deleteAtIndex(1) # 3 -> 15 -> 1 -> 10 -> None
-# obj.debug_whole_list()
-# debug(('3 -> 15 -> 1 -> 10 -> 99 -> None\n'))
-
-
-##numbers = MyLinkedList()
-##numbers.addAtHead('two')
-##numbers.addAtHead('one')
-##numbers.addAtHead('zero')
-##numbers.debug_whole_list()
-##
-##numbers.addAtTail('Three')
-##numbers.debug_whole_list()
-##
-##numbers.addAtTail('Four')
-##numbers.debug_whole_list()
-##
-##numbers.addAtTail('Six')
-##numbers.debug_whole_list()
-##
-##numbers.addAtIndex(5, 'Five')
-##numbers.debug_whole_list()
-##
-##numbers.addAtIndex(8, 'Eight')
-##numbers.debug_whole_list()
-##
-##numbers.addAtIndex(1, 'Seven')
-##numbers.debug_whole_list()
-##
-##numbers.deleteAtIndex(1)
-##numbers.debug_whole_list()
 
 
 

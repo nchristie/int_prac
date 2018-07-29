@@ -28462,3 +28462,287 @@ DEBUG:root:---for loop in to get value at index about to begin---
 DEBUG:root:addAtHead(90)
 DEBUG:root:addAtHead(24)
 DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(8)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:addAtHead(26)
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(15)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(82)
+DEBUG:root:deleteAtIndex(6)
+DEBUG:root:addAtHead(3)
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(11)
+DEBUG:root:deleteAtIndex(7)
+DEBUG:root:addAtHead(57)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(69)
+DEBUG:root:addAtHead(7)
+DEBUG:root:addAtHead(41)
+DEBUG:root:addAtHead(33)
+DEBUG:root:addAtHead(88)
+DEBUG:root:addAtHead(44)
+DEBUG:root:addAtHead(8)
+DEBUG:root:addAtHead(93)
+DEBUG:root:deleteAtIndex(18)
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(46)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(92)
+DEBUG:root:addAtHead(71)
+DEBUG:root:addAtHead(69)
+DEBUG:root:deleteAtIndex(27)
+DEBUG:root:deleteAtIndex(12)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(77)
+DEBUG:root:deleteAtIndex(3)
+DEBUG:root:addAtHead(35)
+DEBUG:root:deleteAtIndex(22)
+DEBUG:root:deleteAtIndex(36)
+DEBUG:root:deleteAtIndex(17)
+DEBUG:root:addAtHead(62)
+DEBUG:root:addAtHead(6)
+DEBUG:root:deleteAtIndex(23)
+DEBUG:root:deleteAtIndex(28)
+DEBUG:root:addAtHead(0)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(6)
+DEBUG:root:addAtHead(68)
+DEBUG:root:addAtHead(79)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(25)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(90)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(8)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:addAtHead(26)
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(15)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(82)
+DEBUG:root:deleteAtIndex(6)
+DEBUG:root:addAtHead(3)
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(11)
+DEBUG:root:deleteAtIndex(7)
+DEBUG:root:addAtHead(57)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(69)
+DEBUG:root:addAtHead(7)
+DEBUG:root:addAtHead(41)
+DEBUG:root:addAtHead(33)
+DEBUG:root:addAtHead(88)
+DEBUG:root:addAtHead(44)
+DEBUG:root:addAtHead(8)
+DEBUG:root:addAtHead(93)
+DEBUG:root:deleteAtIndex(18)
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(46)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(92)
+DEBUG:root:addAtHead(71)
+DEBUG:root:addAtHead(69)
+DEBUG:root:deleteAtIndex(27)
+DEBUG:root:deleteAtIndex(12)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(77)
+DEBUG:root:deleteAtIndex(3)
+DEBUG:root:addAtHead(35)
+DEBUG:root:deleteAtIndex(22)
+DEBUG:root:deleteAtIndex(36)
+DEBUG:root:deleteAtIndex(17)
+DEBUG:root:addAtHead(62)
+DEBUG:root:addAtHead(6)
+DEBUG:root:deleteAtIndex(23)
+DEBUG:root:deleteAtIndex(28)
+DEBUG:root:addAtHead(0)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(6)
+DEBUG:root:addAtHead(68)
+DEBUG:root:addAtHead(79)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(25)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(90)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(8)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:addAtHead(26)
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(15)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(82)
+DEBUG:root:deleteAtIndex(6)
+DEBUG:root:addAtHead(3)
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(11)
+DEBUG:root:deleteAtIndex(7)
+DEBUG:root:addAtHead(57)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(69)
+DEBUG:root:addAtHead(7)
+DEBUG:root:addAtHead(41)
+DEBUG:root:addAtHead(33)
+DEBUG:root:addAtHead(88)
+DEBUG:root:addAtHead(44)
+DEBUG:root:addAtHead(8)
+DEBUG:root:addAtHead(93)
+DEBUG:root:deleteAtIndex(18)
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(46)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(92)
+DEBUG:root:addAtHead(71)
+DEBUG:root:addAtHead(69)
+DEBUG:root:deleteAtIndex(27)
+DEBUG:root:deleteAtIndex(12)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(77)
+DEBUG:root:deleteAtIndex(3)
+DEBUG:root:addAtHead(35)
+DEBUG:root:deleteAtIndex(22)
+DEBUG:root:deleteAtIndex(36)
+DEBUG:root:deleteAtIndex(17)
+DEBUG:root:addAtHead(62)
+DEBUG:root:addAtHead(6)
+DEBUG:root:deleteAtIndex(23)
+DEBUG:root:deleteAtIndex(28)
+DEBUG:root:addAtHead(0)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(6)
+DEBUG:root:addAtHead(68)
+DEBUG:root:addAtHead(79)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(25)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(90)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(8)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:addAtHead(26)
+DEBUG:root:deleteAtIndex(2)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(15)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(82)
+DEBUG:root:deleteAtIndex(6)
+DEBUG:root:addAtHead(3)
+DEBUG:root:deleteAtIndex(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:deleteAtIndex(11)
+DEBUG:root:deleteAtIndex(7)
+DEBUG:root:addAtHead(57)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(69)
+DEBUG:root:addAtHead(7)
+DEBUG:root:addAtHead(41)
+DEBUG:root:addAtHead(33)
+DEBUG:root:addAtHead(88)
+DEBUG:root:addAtHead(44)
+DEBUG:root:addAtHead(8)
+DEBUG:root:addAtHead(93)
+DEBUG:root:deleteAtIndex(18)
+DEBUG:root:addAtHead(1)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(46)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(92)
+DEBUG:root:addAtHead(71)
+DEBUG:root:addAtHead(69)
+DEBUG:root:deleteAtIndex(27)
+DEBUG:root:deleteAtIndex(12)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(77)
+DEBUG:root:deleteAtIndex(3)
+DEBUG:root:addAtHead(35)
+DEBUG:root:deleteAtIndex(22)
+DEBUG:root:deleteAtIndex(36)
+DEBUG:root:deleteAtIndex(17)
+DEBUG:root:addAtHead(62)
+DEBUG:root:addAtHead(6)
+DEBUG:root:deleteAtIndex(23)
+DEBUG:root:deleteAtIndex(28)
+DEBUG:root:addAtHead(0)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(6)
+DEBUG:root:addAtHead(68)
+DEBUG:root:addAtHead(79)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(25)
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:---for loop in to get value at index about to begin---
+DEBUG:root:addAtHead(90)
+DEBUG:root:addAtHead(24)
+DEBUG:root:---for loop in to get value at index about to begin---
